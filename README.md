@@ -31,17 +31,23 @@ Schema::table('posts', function (Blueprint $table) {
 
 You can install the package via composer:
 
+### Install via Composer
+
 ```bash
 composer require marshmallow/laravel-open-ai-migrations
 ```
 
-And publish the service provider (and config):
+### Publish the config file
 
 ```bash
 php artisan vendor:publish --tag=laravel-open-ai-migrations
 ```
 
-Usage:
+### Update the config file
+
+After you've published the config file, you need to add your Open AI API token. There is also some other magic you can do there, you should realy check it out.
+
+# Usage
 
 ```bash
 artisan ai:migration {description}
