@@ -14,6 +14,9 @@
 
 ```bash
 artisan make:ai-migration "Add is_active and published_at to the posts table after intro"
+
+INFO  Migration [database/migrations/2023_02_16_082621_change_the_slug_column_in_blogs_to_be_nullable_and_unique.php] created successfully.
+INFO  Estimated costs of [$0.00302] for using [151] tokens.
 ```
 
 ## Will turn into this!!
