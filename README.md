@@ -8,12 +8,12 @@
 [![Stars](https://img.shields.io/github/stars/marshmallow-packages/laravel-open-ai-migrations?color=yellow&style=plastic)](https://github.com/marshmallow-packages/laravel-open-ai-migrations)
 [![Forks](https://img.shields.io/github/forks/marshmallow-packages/laravel-open-ai-migrations?color=brightgreen&style=plastic)](https://github.com/marshmallow-packages/laravel-open-ai-migrations)
 
-# What It Do
+# What It Do?!
 
 ## This command
 
 ```bash
-artisan ai:migration "Add is_active and published_at to the posts table after intro"
+artisan make:ai-migration "Add is_active and published_at to the posts table after intro"
 ```
 
 ## Will turn into this!!
@@ -43,14 +43,35 @@ composer require marshmallow/laravel-open-ai-migrations
 php artisan vendor:publish --tag=laravel-open-ai-migrations
 ```
 
+### Add your API Key
+
+Add your Open AI API key to your `.env` file.
+
+```env
+OPEN_AI_API_KEY="sk-xxxxxxx"
+```
+
 ### Update the config file
 
 After you've published the config file, you need to add your Open AI API token. There is also some other magic you can do there, you should realy check it out.
 
 # Usage
 
+Run the AI Migration command with a description of what you want this migration to do.
+
 ```bash
-artisan ai:migration {description}
+artisan make:ai-migration "Change the slug column in blogs to be nullable and unique"
+```
+
+After this artisan command is ready, you will have a full migration file in your migrations folder with exactly that!
+
+```php
+public function up()
+{
+    Schema::table('blogs', function (Blueprint $table) {
+        $table->string('slug')->nullable()->unique()->change();
+    });
+}
 ```
 
 ## Changelog
