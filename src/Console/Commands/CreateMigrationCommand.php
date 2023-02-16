@@ -116,6 +116,14 @@ class CreateMigrationCommand extends BaseCommand implements PromptsForMissingInp
 
         /** Let the console know that we are done! */
         $this->components->info(sprintf('Migration [%s] created successfully.', $file_path));
+
+        /** Output the estimated costs of the API usage */
+        $tokens = Arr::get($response_array, 'usage.total_tokens');
+        $price_per_1000_tokens = 0.0200;
+        $price = '$' . ($price_per_1000_tokens / 1000) * $tokens;
+        $this->components->info(sprintf('Estimated costs of [%s] for using [%s] tokens.', $price, $tokens));
+
+        return Command::SUCCESS;
     }
 
     /**
