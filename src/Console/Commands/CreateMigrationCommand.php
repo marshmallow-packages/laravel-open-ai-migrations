@@ -31,7 +31,7 @@ class CreateMigrationCommand extends BaseCommand implements PromptsForMissingInp
      *
      * @var string
      */
-    protected $description = 'Generate a new migration from the default Laravel stub and prefill it with what ChatGPT things it should be, and it will be correct!';
+    protected $description = 'Generate a new migration from the default Laravel stub and prefill it with what Open AI things it should be, and it will be correct!';
 
     public function __construct()
     {
@@ -47,9 +47,9 @@ class CreateMigrationCommand extends BaseCommand implements PromptsForMissingInp
     public function handle()
     {
         /** Validate that we have an API key to call the API. */
-        if (!config('laravel-open-ai-migrations.chatgpt_api_key')) {
+        if (!config('laravel-open-ai-migrations.open_ai_api_key')) {
             $this->components->error(
-                __('The ChatGPT api key is missing. Publish the config file and add your key there.')
+                __('The Open AI api key is missing. Publish the config file and add your key there.')
             );
             return Command::FAILURE;
         }
@@ -58,7 +58,7 @@ class CreateMigrationCommand extends BaseCommand implements PromptsForMissingInp
         $provided_command = $this->input->getArgument('name');
 
         /** Call the Open AI API and ask for some magic. */
-        $response = Http::withToken(config('laravel-open-ai-migrations.chatgpt_api_key'))
+        $response = Http::withToken(config('laravel-open-ai-migrations.open_ai_api_key'))
             ->post('https://api.openai.com/v1/completions', [
                 /** The language model */
                 'model' => config('laravel-open-ai-migrations.model'),

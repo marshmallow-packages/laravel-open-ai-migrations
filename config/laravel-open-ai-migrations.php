@@ -3,15 +3,15 @@
 return [
     /*
     |--------------------------------------------------------------------------
-    | ChatGPT API Key
+    | Open AI API Key
     |--------------------------------------------------------------------------
     |
-    | This value is your ChatGPT API key that will be used to connect to the API.
-    | Please visit the ChatGPT website to obtain your API key. Sadly using the
+    | This value is your Open AI API key that will be used to connect to the API.
+    | Please visit the Open AI website to obtain your API key. Sadly using the
     | API wont be free in all cases so you might need a paid account.
     |
     */
-    'chatgpt_api_key' => null,
+    'open_ai_api_key' => env('OPEN_AI_API_KEY'),
 
     /*
     |--------------------------------------------------------------------------
@@ -29,7 +29,7 @@ return [
     | Language Model
     |--------------------------------------------------------------------------
     |
-    | You can change the language model that we use in the ChatGPT API by changing
+    | You can change the language model that we use in the Open AI API by changing
     | this config value below. We have found that 'text-davinci-003' will
     | give the best results. Please let us know if you dont agree.
     */
@@ -41,7 +41,7 @@ return [
     |--------------------------------------------------------------------------
     |
     | This is the maximum amount of tokens you want to spent on your request to
-    | the ChatGPT API. The max tokens takes the request and response into
+    | the Open AI API. The max tokens takes the request and response into
     | account. The request will use around a 100 tokens per request.
     |
     */

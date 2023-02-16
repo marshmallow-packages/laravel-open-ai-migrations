@@ -1,10 +1,11 @@
 {
     "name": "marshmallow/laravel-open-ai-migrations",
-    "description": "Marshmallow - Laravel Migrations using ChatGPT",
+    "description": "Marshmallow - Laravel Migrations using Open AI",
     "keywords": [
         "marshmallow",
         "laravel nova",
-        "ChatGPT"
+        "ChatGPT",
+        "Open AI"
     ],
     "homepage": "https://github.com/marshmallow/laravel-open-ai-migrations",
     "license": "MIT",
