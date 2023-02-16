@@ -25,6 +25,9 @@ class ServiceProvider extends IlluminateServiceProvider
 
     public function register()
     {
-        //
+        $this->mergeConfigFrom(
+            __DIR__ . '/../config/laravel-open-ai-migrations.php',
+            'laravel-open-ai-migrations'
+        );
     }
 }
