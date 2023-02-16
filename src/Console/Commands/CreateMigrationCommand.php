@@ -17,7 +17,7 @@ class CreateMigrationCommand extends BaseCommand implements PromptsForMissingInp
      *
      * @var string
      */
-    protected $signature = 'ai:migration {name : The name of the migration}';
+    protected $signature = 'make:ai-migration {description : What you want to do with the migration}';
 
     /**
      * The default Laravel Migration Creator.
@@ -54,8 +54,8 @@ class CreateMigrationCommand extends BaseCommand implements PromptsForMissingInp
             return Command::FAILURE;
         }
 
-        /** Get the name from the command */
-        $provided_command = $this->input->getArgument('name');
+        /** Get the command from the command */
+        $provided_command = $this->input->getArgument('description');
 
         /** Call the Open AI API and ask for some magic. */
         $response = Http::withToken(config('laravel-open-ai-migrations.open_ai_api_key'))
@@ -126,7 +126,7 @@ class CreateMigrationCommand extends BaseCommand implements PromptsForMissingInp
     protected function promptForMissingArgumentsUsing()
     {
         return [
-            'name' => __('What should the migration be named?'),
+            'description' => __('Please provide some information about what you want to migrate.'),
         ];
     }
 }
